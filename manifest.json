@@ -19,7 +19,7 @@
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "screenshots": [
-    { "src": "screenshots/home.png", "sizes": "390x844", "type": "image/png", "form_factor": "narrow" }
+    { "src": "screenshots/home.png", "sizes": "430x767", "type": "image/png", "form_factor": "narrow" }
   ],
   "prefer_related_applications": false,
   "lang": "en",
