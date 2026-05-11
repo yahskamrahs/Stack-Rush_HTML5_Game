@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – Stack Rush: Color Tower</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #060612;
+      --surface: #0d0d2b;
+      --card: #111133;
+      --border: #1e1e4a;
+      --cyan: #00e5ff;
+      --gold: #ffd700;
+      --purple: #7c3aed;
+      --text: #c8d6f0;
+      --muted: #5a6a8a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Animated starfield background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(0,229,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,215,0,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(0,229,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,215,0,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 40%, rgba(0,229,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 90%, rgba(124,58,237,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 15%, rgba(124,58,237,0.3) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 45%, rgba(0,229,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 50%, rgba(255,255,255,0.15) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glowing grid lines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .logo-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .blocks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .block {
+      border-radius: 4px;
+      height: 10px;
+    }
+
+    .block-1 { width: 48px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    .block-2 { width: 38px; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+    .block-3 { width: 28px; background: #ff4da6; box-shadow: 0 0 10px #ff4da6; }
+    .block-4 { width: 18px; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    h1 span.cyan { color: var(--cyan); }
+    h1 span.gold { color: var(--gold); }
+
+    .subtitle {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 6px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .updated {
+      display: inline-block;
+      background: rgba(0,229,255,0.08);
+      border: 1px solid rgba(0,229,255,0.2);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), transparent);
+      margin: 40px 0;
+      opacity: 0.4;
+    }
+
+    /* Intro card */
+    .intro-card {
+      background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(124,58,237,0.06));
+      border: 1px solid rgba(0,229,255,0.15);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 16px;
+      background: linear-gradient(180deg, var(--cyan), var(--gold));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    ul li {
+      font-size: 0.92rem;
+      color: var(--text);
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    .highlight {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .contact-box {
+      background: rgba(255,215,0,0.05);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 10px;
+    }
+
+    .contact-box a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    footer .brand {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--cyan);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 40px 16px 60px; }
+      h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-icon">
+      <div class="blocks">
+        <div class="block block-1"></div>
+        <div class="block block-2"></div>
+        <div class="block block-3"></div>
+        <div class="block block-4"></div>
+      </div>
+    </div>
+    <p class="subtitle">Infinite Precision</p>
+    <h1><span class="cyan">STACK</span> <span class="gold">RUSH</span></h1>
+    <p class="subtitle">Color Tower</p>
+    <span class="updated">Last updated: May 11, 2025</span>
+  </header>
+
+  <div class="intro-card">
+    This Privacy Policy explains how <span class="highlight">RavenByte Solutions</span> ("we", "us", or "our") handles information when you play <span class="highlight">Stack Rush: Color Tower</span>. We are committed to protecting your privacy. This app is designed to be simple, fun, and respectful of your data.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>Information We Do Not Collect</h2>
+    <p>Stack Rush: Color Tower does <span class="highlight">not</span> collect, store, or transmit any personally identifiable information. We do not collect:</p>
+    <ul>
+      <li>Your name, email address, or contact information</li>
+      <li>Your location or GPS data</li>
+      <li>Your device's contacts, camera, or microphone</li>
+      <li>Any financial or payment information</li>
+      <li>Your browsing history or data from other apps</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Local Game Data</h2>
+    <p>The game saves certain data <span class="highlight">locally on your device only</span> to provide a better experience. This includes:</p>
+    <ul>
+      <li>Your high score and best performance records</li>
+      <li>Number of games played and perfect stacks</li>
+      <li>Coins collected and shop preferences</li>
+      <li>Selected game themes and settings</li>
+    </ul>
+    <p>This data never leaves your device and is not accessible to us or any third party.</p>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Services</h2>
+    <p>Stack Rush: Color Tower does <span class="highlight">not</span> integrate any third-party advertising, analytics, or tracking SDKs. We do not use:</p>
+    <ul>
+      <li>Google Analytics or Firebase Analytics</li>
+      <li>Facebook SDK or any social login</li>
+      <li>AdMob or any advertising networks</li>
+      <li>Crash reporting tools that collect user data</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Internet Permission</h2>
+    <p>The app may request internet access solely to load game assets when needed. No personal data is transmitted over the internet at any time.</p>
+  </div>
+
+  <div class="section">
+    <h2>Children's Privacy</h2>
+    <p>Stack Rush: Color Tower is safe for players of all ages. We do not knowingly collect any information from children under the age of 13. Since we collect no personal data from anyone, this app fully complies with <span class="highlight">COPPA</span> (Children's Online Privacy Protection Act) and similar regulations.</p>
+  </div>
+
+  <div class="section">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, feel free to reach out:</p>
+    <div class="contact-box">
+      <p>🎮 <strong>App:</strong> Stack Rush: Color Tower</p>
+      <p>🏢 <strong>Developer:</strong> RavenByte Solutions</p>
+      <p>📦 <strong>Package ID:</strong> com.ravenbyte.stackrush</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:contact.ravenbyte@gmail.com">contact.ravenbyte@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 RavenByte Solutions. All rights reserved.</p>
+    <p class="brand">STACK RUSH — INFINITE PRECISION</p>
+  </footer>
+
+</div>
+</body>
+</html>
